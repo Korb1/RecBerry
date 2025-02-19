@@ -10,16 +10,12 @@
     color: #fff;
 }
 
-/* Estilos generales para el body */
-body {
-    background: #14151F;
-    min-height: 100vh;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Doto', sans-serif;
-    color: #DDDDDD;
+/* Variables de color Nothing Community */
+:root {
+    --nothing-white: #FFFFFF;
+    --nothing-black: #000000;
+    --nothing-red: #D71921;
+    --nothing-dark-gray: #14151F;
 }
 
 :root{
@@ -49,25 +45,29 @@ body {
     --item5-opacity: 0;
 }
 
-/* ESTILOS PARA EL CAROUSEL CON LA LISTA DE PRODUCTOS */
-
-.carousel-slider-container {
-    position: relative;
-    height: 800px;
-    overflow: hidden;
-    margin-top: 50px;
+body{
+    margin: 0;
+    background-color: var(--nothing-dark-gray);
+    color: var(--nothing-red);
+    font-family: Doto;
 }
 
-.carousel-slider-container .carousel-slider-list {
+/* carousel */
+.carousel{
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.carousel .list{
     position: absolute;
-    width: 1140px;
+    width: 67%;
     max-width: 90%;
     height: 80%;
     left: 50%;
     transform: translateX(-50%);
 }
-
-.carousel-slider-container .carousel-slider-list .carousel-slider-item {
+.carousel .list .item{
     position: absolute;
     left: 0%;
     width: 70%;
@@ -75,17 +75,14 @@ body {
     font-size: 15px;
     transition: left 0.5s, opacity 0.5s, width 0.5s;
 }
-
-.carousel-slider-container .carousel-slider-list .carousel-slider-item:nth-child(n + 6) {
+.carousel .list .item:nth-child(n + 6){
     opacity: 0;
 }
-
-.carousel-slider-container .carousel-slider-list .carousel-slider-item:nth-child(2) {
+.carousel .list .item:nth-child(2){
     z-index: 10;
     transform: translateX(0);
 }
-
-.carousel-slider-container .carousel-slider-list .carousel-slider-item img {
+.carousel .list .item img{
     width: 50%;
     position: absolute;
     right: 0;
@@ -94,12 +91,11 @@ body {
     transition: right 1.5s;
 }
 
-.carousel-slider-container .carousel-slider-list .carousel-slider-item .carousel-slider-introduce {
+.carousel .list .item .introduce{
     opacity: 0;
     pointer-events: none;
 }
-
-.carousel-slider-container .carousel-slider-list .carousel-slider-item:nth-child(2) .carousel-slider-introduce {
+.carousel .list .item:nth-child(2) .introduce{
     opacity: 1;
     pointer-events: auto;
     width: 400px;
@@ -108,26 +104,24 @@ body {
     transform:  translateY(-50%);
     transition: opacity 0.5s;
 }
-
-.carousel-slider-container .carousel-slider-list .carousel-slider-item .carousel-slider-introduce .carousel-slider-title {
+.carousel .list .item .introduce .title{
     font-size: 2em;
     font-weight: 500;
     line-height: 1em;
     color: var(--nothing-white);
 }
-
-.carousel-slider-container .carousel-slider-list .carousel-slider-item .carousel-slider-introduce .carousel-slider-topic{
+.carousel .list .item .introduce .topic{
     font-size: 4em;
     font-weight: 500;
     color: var(--nothing-white);
 }
-
-.carousel-slider-container .carousel-slider-list .carousel-slider-item .carousel-slider-introduce .carousel-slider-description {
+.carousel .list .item .introduce .des{
     font-size: small;
     color: var(--nothing-white);
 }
 
-.carousel-slider-container .carousel-slider-list .carousel-slider-item .carousel-slider-introduce .carousel-slider-seeMore{
+/* Botón See More mejorado pero manteniendo animación original */
+.carousel .list .item .introduce .seeMore{
     font-family: Poppins;
     margin-top: 1.2em;
     padding: 5px 0;
@@ -140,41 +134,39 @@ body {
     transition: background 0.5s;
 }
 
-.carousel-slider-container .carousel-slider-list .carousel-slider-item .carousel-slider-introduce .carousel-slider-seeMore:hover {
+.carousel .list .item .introduce .seeMore:hover{
     background: rgba(215, 25, 33, 0.1);
 }
 
-.carousel-slider-container .carousel-slider-list .carousel-slider-item:nth-child(1) {
+.carousel .list .item:nth-child(1){
     transform: var(--item1-transform);
     filter: var(--item1-filter);
     z-index: var(--item1-zIndex);
     opacity: var(--item1-opacity);
     pointer-events: none;
 }
-
-.carousel-slider-container .carousel-slider-list .carousel-slider-item:nth-child(3) {
+.carousel .list .item:nth-child(3){
     transform: var(--item3-transform);
     filter: var(--item3-filter);
     z-index: var(--item3-zIndex);
 }
-
-.carousel-slider-container .carousel-slider-list .carousel-slider-item:nth-child(4) {
+.carousel .list .item:nth-child(4){
     transform: var(--item4-transform);
     filter: var(--item4-filter);
     z-index: var(--item4-zIndex);
 }
-
-.carousel-slider-container .carousel-slider-list .carousel-slider-item:nth-child(5) {
+.carousel .list .item:nth-child(5){
     transform: var(--item5-transform);
     filter: var(--item5-filter);
     opacity: var(--item5-opacity);
     pointer-events: none;
 }
 
-.carousel-slider-container .carousel-slider-list .carousel-slider-item:nth-child(2) .carousel-slider-introduce .carousel-slider-title,
-.carousel-slider-container .carousel-slider-list .carousel-slider-item:nth-child(2) .carousel-slider-introduce .carousel-slider-topic,
-.carousel-slider-container .carousel-slider-list .carousel-slider-item:nth-child(2) .carousel-slider-introduce .carousel-slider-description,
-.carousel-slider-container .carousel-slider-list .carousel-slider-item:nth-child(2) .carousel-slider-introduce .carousel-slider-seeMore {
+/* animation text in item2 */
+.carousel .list .item:nth-child(2) .introduce .title,
+.carousel .list .item:nth-child(2) .introduce .topic,
+.carousel .list .item:nth-child(2) .introduce .des,
+.carousel .list .item:nth-child(2) .introduce .seeMore{
     opacity: 0;
     animation: showContent 0.5s 1s ease-in-out 1 forwards;
 }
@@ -190,58 +182,51 @@ body {
     }
 }
 
-.carousel-slider-container .carousel-slider-list .carousel-slider-item:nth-child(2) .carousel-slider-introduce .carousel-slider-topic { 
+.carousel .list .item:nth-child(2) .introduce .topic{
     animation-delay: 1.2s;
 }
-.carousel-slider-container .carousel-slider-list .carousel-slider-item:nth-child(2) .carousel-slider-introduce .carousel-slider-description {
+.carousel .list .item:nth-child(2) .introduce .des{
     animation-delay: 1.4s;
 }
-.carousel-slider-container .carousel-slider-list .carousel-slider-item:nth-child(2) .carousel-slider-introduce .carousel-slider-seeMore {
+.carousel .list .item:nth-child(2) .introduce .seeMore{
     animation-delay: 1.6s;
 }
 
-/* Bontón de siguiente: "Next" o "⇨" */
-.carousel-slider-container.carousel-slider-btn-next .carousel-slider-item:nth-child(1) {
+/* next click */
+.carousel.next .item:nth-child(1){
     animation: transformFromPosition2 0.5s ease-in-out 1 forwards;
 }
-
-@keyframes transformFromPosition2 {
+@keyframes transformFromPosition2{
     from{
         transform: var(--item2-transform);
         filter: var(--item2-filter);
         opacity: var(--item2-opacity);
     }
 }
-
-.carousel-slider-container.carousel-slider-btn-next .carousel-slider-item:nth-child(2) {
+.carousel.next .item:nth-child(2){
     animation: transformFromPosition3 0.7s ease-in-out 1 forwards;
 }
-
-@keyframes transformFromPosition3 {
+@keyframes transformFromPosition3{
     from{
         transform: var(--item3-transform);
         filter: var(--item3-filter);
         opacity: var(--item3-opacity);
     }
 }
-
-.carousel-slider-container.carousel-slider-btn-next .carousel-slider-item:nth-child(3) {
+.carousel.next .item:nth-child(3){
     animation: transformFromPosition4 0.9s ease-in-out 1 forwards;
 }
-
-@keyframes transformFromPosition4 {
+@keyframes transformFromPosition4{
     from{
         transform: var(--item4-transform);
         filter: var(--item4-filter);
         opacity: var(--item4-opacity);
     }
 }
-
-.carousel-slider-container.carousel-slider-btn-next .carousel-slider-item:nth-child(4) {
+.carousel.next .item:nth-child(4){
     animation: transformFromPosition5 1.1s ease-in-out 1 forwards;
 }
-
-@keyframes transformFromPosition5 {
+@keyframes transformFromPosition5{
     from{
         transform: var(--item5-transform);
         filter: var(--item5-filter);
@@ -249,24 +234,20 @@ body {
     }
 }
 
-/* Bontón para regresar: "Prev" o "⇦" */
-.carousel-slider-container.carousel-slider-btn-prev .carousel-slider-list .carousel-slider-item:nth-child(5) {
+/* previous */
+.carousel.prev .list .item:nth-child(5){
     animation: transformFromPosition4 0.5s ease-in-out 1 forwards;
 }
-
-.carousel-slider-container.carousel-slider-btn-prev .carousel-slider-list .carousel-slider-item:nth-child(4) {
+.carousel.prev .list .item:nth-child(4){
     animation: transformFromPosition3 0.7s ease-in-out 1 forwards;
 }
-
-.carousel-slider-container.carousel-slider-btn-prev .carousel-slider-list .carousel-slider-item:nth-child(3) {
+.carousel.prev .list .item:nth-child(3){
     animation: transformFromPosition2 0.9s ease-in-out 1 forwards;
 }
-
-.carousel-slider-container.carousel-slider-btn-prev .carousel-slider-list .carousel-slider-item:nth-child(2) {
+.carousel.prev .list .item:nth-child(2){
     animation: transformFromPosition1 1.1s ease-in-out 1 forwards;
 }
-
-@keyframes transformFromPosition1 {
+@keyframes transformFromPosition1{
     from{
         transform: var(--item1-transform);
         filter: var(--item1-filter);
@@ -274,49 +255,30 @@ body {
     }
 }
 
-/* Detalles */
-.carousel-slider-container .carousel-slider-list .carousel-slider-item .carousel-slider-detail{
+/* detail  */
+.carousel .list .item .detail{
     opacity: 0;
     pointer-events: none;
 }
 
-/* Mostrar detalles */
-.carousel-slider-container.carousel-slider-detail .carousel-slider-list .carousel-slider-item:nth-child(3),
-.carousel-slider-container.carousel-slider-detail .carousel-slider-list .carousel-slider-item:nth-child(4) {
+/* showDetail */
+.carousel.showDetail .list .item:nth-child(3),
+.carousel.showDetail .list .item:nth-child(4){
     left: 100%;
     opacity: 0;
     pointer-events: none;
 }
-
-.carousel-slider-container
-.carousel-slider-item
-.carousel-slider-list
-.carousel-slider-introduce
-.carousel-slider-title
-.carousel-slider-topic
-.carousel-slider-description
-.carousel-slider-seeMore
-.carousel-slider-detail
-.carousel-slider-specifications
-.carousel-slider-checkout
-.carousel-slider-btn-next
-.carousel-slider-btn-prev
-.carousel-slider-btn-back
-
-.carousel-slider-container.carousel-slider-detail .carousel-slider-list .carousel-slider-item:nth-child(2) {
+.carousel.showDetail .list .item:nth-child(2){
     width: 100%;
 }
-
-.carousel-slider-container.carousel-slider-detail .carousel-slider-list .carousel-slider-item:nth-child(2) .carousel-slider-introduce {
+.carousel.showDetail .list .item:nth-child(2) .introduce{
     opacity: 0;
     pointer-events: none;
 }
-
-.carousel-slider-container.carousel-slider-detail .carousel-slider-list .carousel-slider-item:nth-child(2) img {
+.carousel.showDetail .list .item:nth-child(2) img{
     right: 50%;
 }
-
-.carousel-slider-container.carousel-slider-detail .carousel-slider-list .carousel-slider-item:nth-child(2) .carousel-slider-detail {
+.carousel.showDetail .list .item:nth-child(2) .detail{
     opacity: 1;
     width: 50%;
     position: absolute;
@@ -326,7 +288,6 @@ body {
     text-align: right;
     pointer-events: auto;
 }
-
 .carousel.showDetail .list .item:nth-child(2) .detail .title{
     font-size: 4em;
     color: var(--nothing-white);
@@ -402,9 +363,9 @@ p{
     transform: translateX(-50%);
 }
 
-/* Botones de navegación mejorados */
 #prev,
 #next{
+    margin-bottom: 120px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -430,6 +391,7 @@ p{
 
 /* Botón back mejorado */
 #back{
+    margin-bottom: 120px;
     position: absolute;
     z-index: 100;
     bottom: 0%;
@@ -481,64 +443,23 @@ p{
     filter: blur(130px);
 }
 
-/* Media queries para responsividad */
-@media (max-width: 768px) {
-    header {
-        padding: 0 20px;
-    }
 
-    .carousel {
-        height: 600px;
-    }
 
-    .carousel .list .item .introduce {
-        width: 300px;
-    }
 
-    .carousel .list .item .introduce .title {
-        font-size: 1.8em;
-    }
 
-    .carousel .list .item .introduce .topic {
-        font-size: 3.5em;
-    }
-}
 
-@media (max-width: 480px) {
-    header nav a {
-        margin-left: 15px;
-        font-size: 14px;
-    }
 
-    .carousel {
-        height: 500px;
-    }
 
-    .carousel .list .item .introduce {
-        width: 250px;
-    }
 
-    .carousel .list .item .introduce .title {
-        font-size: 1.5em;
-    }
 
-    .carousel .list .item .introduce .topic {
-        font-size: 3em;
-    }
 
-    #prev,
-    #next {
-        width: 35px;
-        height: 35px;
-        font-size: 14px;
-    }
-}
 
-/* Estilos para la sección de FEEDBACK (Comentarios de los clientes) */
+
+/* Estilos para la Sección de comentarios (Feedback de los usuarios) */
+
 .feedback-slider-container {
     padding: 35px 0; 
     box-sizing: border-box;
-    position: relative;
     width: 100%;
     height: 470px;
     overflow: hidden;

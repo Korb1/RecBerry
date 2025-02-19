@@ -1,5 +1,3 @@
-// Sección: Carousel con lista de productos 
-
 let nextButton = document.getElementById('next');
 let prevButton = document.getElementById('prev');
 let carousel = document.querySelector('.carousel');
@@ -42,7 +40,6 @@ seeMoreButtons.forEach((button) => {
 backButton.onclick = function(){
     carousel.classList.remove('showDetail');
 }
-
 
 // Sección: Comentarios de la Clientela.
 
